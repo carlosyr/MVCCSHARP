@@ -198,6 +198,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ObtenerCategorias_Result.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Productos.cs">
       <DependentUpon>ModeloInventario.tt</DependentUpon>
     </Compile>
