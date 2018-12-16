@@ -4,10 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="32a10412f7d04affa70a6a13b71e8cbd" Name="Diagram1">
-        <EntityTypeShape EntityType="dbInventarioModel.Categorias" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbInventarioModel.Productos" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="dbInventarioModel.FK_Productos_Categorias" ManuallyRouted="false" />
+      <Diagram DiagramId="1776fdd3f33e4b8ebae827ca44ca5a83" Name="Diagram1">
+        <EntityTypeShape EntityType="dbInventarioModel.Categoria" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="dbInventarioModel.Cliente" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbInventarioModel.DetalleFactura" Width="1.5" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="dbInventarioModel.Factura" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="dbInventarioModel.Producto" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="dbInventarioModel.Rol" Width="1.5" PointX="5.75" PointY="5.25" />
+        <EntityTypeShape EntityType="dbInventarioModel.Usuario" Width="1.5" PointX="8" PointY="4.875" />
+        <AssociationConnector Association="dbInventarioModel.FK_Producto_Categoria" />
+        <AssociationConnector Association="dbInventarioModel.FK_DetalleFactura_DetalleFactura" />
+        <AssociationConnector Association="dbInventarioModel.FK_DetalleFactura_Producto" />
+        <AssociationConnector Association="dbInventarioModel.FK_Usuario_Rol" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

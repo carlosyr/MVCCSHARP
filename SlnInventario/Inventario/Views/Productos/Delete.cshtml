@@ -1,4 +1,4 @@
-﻿@model Inventario.Models.Productos
+﻿@model Inventario.Models.Producto
 
 @{
     ViewBag.Title = "Delete";
@@ -9,63 +9,87 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Productos</h4>
+    <h4>Producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            @Html.DisplayNameFor(model => model.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nombre)
+            @Html.DisplayFor(model => model.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
+            @Html.DisplayNameFor(model => model.Cantidad_Stock)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.descripcion)
+            @Html.DisplayFor(model => model.Cantidad_Stock)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.cantidad)
+            @Html.DisplayFor(model => model.Descripcion)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.marca)
+            @Html.DisplayNameFor(model => model.Marca)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.marca)
+            @Html.DisplayFor(model => model.Marca)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fechaCreacion)
+            @Html.DisplayNameFor(model => model.Talla)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.fechaCreacion)
+            @Html.DisplayFor(model => model.Talla)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.esArchivo)
+            @Html.DisplayNameFor(model => model.PrecioMayor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.esArchivo)
+            @Html.DisplayFor(model => model.PrecioMayor)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Categorias.nombre)
+            @Html.DisplayNameFor(model => model.PrecioDetalle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Categorias.nombre)
+            @Html.DisplayFor(model => model.PrecioDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioCosto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioCosto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Nombre)
         </dd>
 
     </dl>

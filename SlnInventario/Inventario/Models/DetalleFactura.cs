@@ -10,12 +10,17 @@
 namespace Inventario.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class ObtenerCategorias_Result
+    public partial class DetalleFactura
     {
-        public int idCategoria { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public bool esActivo { get; set; }
+        public int IdDetalle { get; set; }
+        public int IdFactura { get; set; }
+        public int IdProducto { get; set; }
+        public double Cantidad { get; set; }
+        public double Precio { get; set; }
+    
+        public virtual Factura Factura { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

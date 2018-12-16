@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Inventario.Models.Categorias>
+﻿@model IEnumerable<Inventario.Models.Categoria>
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +13,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.esArchivo)
+            @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th></th>
     </tr>
@@ -27,18 +21,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.nombre)
+            @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.esArchivo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCategoria }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCategoria }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCategoria })
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCategoria }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCategoria }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCategoria })
         </td>
     </tr>
 }

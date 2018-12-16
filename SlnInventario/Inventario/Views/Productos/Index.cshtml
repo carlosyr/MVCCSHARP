@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Inventario.Models.Productos>
+﻿@model IEnumerable<Inventario.Models.Producto>
 
 @{
     ViewBag.Title = "Index";
@@ -13,25 +13,34 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            @Html.DisplayNameFor(model => model.Cantidad_Stock)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cantidad)
+            @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.marca)
+            @Html.DisplayNameFor(model => model.Marca)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fechaCreacion)
+            @Html.DisplayNameFor(model => model.Talla)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.esArchivo)
+            @Html.DisplayNameFor(model => model.PrecioMayor)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Categorias.nombre)
+            @Html.DisplayNameFor(model => model.PrecioDetalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioCosto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.Nombre)
         </th>
         <th></th>
     </tr>
@@ -39,30 +48,39 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.nombre)
+            @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
+            @Html.DisplayFor(modelItem => item.Cantidad_Stock)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cantidad)
+            @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.marca)
+            @Html.DisplayFor(modelItem => item.Marca)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fechaCreacion)
+            @Html.DisplayFor(modelItem => item.Talla)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.esArchivo)
+            @Html.DisplayFor(modelItem => item.PrecioMayor)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Categorias.nombre)
+            @Html.DisplayFor(modelItem => item.PrecioDetalle)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idProducto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idProducto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idProducto })
+            @Html.DisplayFor(modelItem => item.PrecioCosto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdProducto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProducto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProducto })
         </td>
     </tr>
 }

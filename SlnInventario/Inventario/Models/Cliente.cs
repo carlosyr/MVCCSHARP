@@ -10,12 +10,15 @@
 namespace Inventario.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class ObtenerCategorias_Result
+    public partial class Cliente
     {
-        public int idCategoria { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public bool esActivo { get; set; }
+        public int IdCliente { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string RFC { get; set; }
     }
 }

@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css-ui")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,8 +26,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
-                    <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
+                    <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
+                    <li>@Html.ActionLink("Categorias", "Index", "Categoria")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -37,9 +39,8 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
+    </div>    
+  
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

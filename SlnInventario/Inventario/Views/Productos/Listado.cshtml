@@ -1,0 +1,118 @@
+﻿@*@model IEnumerable<Inventario.Models.Producto>*@
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+
+    $(document).ready(function () {
+        $('btnProducto').click(function () {
+            $('#modalNuevoProducto').dialog();
+            //alert("alerta boton nuevo");
+        });
+
+        $('btnGuardar').click(function () {
+
+            var data = JSON.stringify()
+            $.ajax({
+                type: 'POST',
+                dataType: "json",
+                url: '/api/Productos',
+                contentType: "application/json; charset=utf-8",
+                success: function (productos) {
+
+                    var trHTML = '';
+                    $.each(productos, function (i, producto) {
+                        trHTML += '<tr><td>' + producto.Nombre + '</td><td>' +
+                            producto.Cantidad_Stock + '</td><td>' +
+                            producto.Descripcion + '</td></tr>';
+                    });
+                    $('#tblProductos').append(trHTML);
+                    //console.log(result);
+                }
+            });
+        });
+
+
+        cargarProductos();
+    });
+
+    function cargarProductos() {
+        $.ajax({
+            type: 'GET',
+            dataType: "json",
+            url: '/api/Productos',
+            contentType: "application/json; charset=utf-8",
+            success: function (productos) {
+                
+                var trHTML = '';
+                $.each(productos, function (i, producto) {
+                    trHTML += '<tr><td>' + producto.Nombre + '</td><td>' +
+                        producto.Cantidad_Stock + '</td><td>' +
+                        producto.Descripcion + '</td></tr>';
+                });
+                $('#tblProductos').append(trHTML);
+                //console.log(result);
+            }
+        });
+    }
+
+</script>
+
+<h2>Listado</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <button type="button" id="btnProducto" class="btn btn-primary">Nuevo Producto</button>
+</p>
+
+<div id="modalNuevoProducto" style="visibility:hidden">
+    <form id="formNuevoProducto">
+        <p>Nombre:</p>
+        <input type="text" id="Nombre" name="Nombre" placeholder="Nombre Producto" maxlength="100" />
+        <p>Cantidad:</p>
+        <input type="text" id="Camtidad_Stock" name="Camtidad_Stock" placeholder="Camtidad de Stock" maxlength="100" />
+        <br/>
+        <button type="button" id="btnGuardar">Guardar</button>
+
+    </form>
+    
+</div>
+
+<table class="table" id="tblProductos">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Cantidad Stock
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Marca
+        </th>
+        <th>
+            Talla
+        </th>
+        <th>
+            PrecioMayor
+        </th>
+        <th>
+            PrecioDetalle
+        </th>
+        <th>
+            PrecioCosto
+        </th>
+        <th>
+            Color
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th></th>
+    </tr>
+</table>

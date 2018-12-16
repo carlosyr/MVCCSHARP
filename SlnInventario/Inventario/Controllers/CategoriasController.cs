@@ -17,7 +17,7 @@ namespace Inventario.Controllers
         // GET: Categorias
         public ActionResult Index()
         {
-            return View(db.Categorias.ToList());
+            return View(db.Categoria.ToList());
         }
 
         // GET: Categorias/Details/5
@@ -27,12 +27,12 @@ namespace Inventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categorias categorias = db.Categorias.Find(id);
-            if (categorias == null)
+            Categoria categoria = db.Categoria.Find(id);
+            if (categoria == null)
             {
                 return HttpNotFound();
             }
-            return View(categorias);
+            return View(categoria);
         }
 
         // GET: Categorias/Create
@@ -42,20 +42,20 @@ namespace Inventario.Controllers
         }
 
         // POST: Categorias/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idCategoria,nombre,descripcion,esArchivo")] Categorias categorias)
+        public ActionResult Create([Bind(Include = "IdCategoria,Nombre")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
-                db.Categorias.Add(categorias);
+                db.Categoria.Add(categoria);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(categorias);
+            return View(categoria);
         }
 
         // GET: Categorias/Edit/5
@@ -65,28 +65,28 @@ namespace Inventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categorias categorias = db.Categorias.Find(id);
-            if (categorias == null)
+            Categoria categoria = db.Categoria.Find(id);
+            if (categoria == null)
             {
                 return HttpNotFound();
             }
-            return View(categorias);
+            return View(categoria);
         }
 
         // POST: Categorias/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idCategoria,nombre,descripcion,esArchivo")] Categorias categorias)
+        public ActionResult Edit([Bind(Include = "IdCategoria,Nombre")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categorias).State = EntityState.Modified;
+                db.Entry(categoria).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(categorias);
+            return View(categoria);
         }
 
         // GET: Categorias/Delete/5
@@ -96,12 +96,12 @@ namespace Inventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categorias categorias = db.Categorias.Find(id);
-            if (categorias == null)
+            Categoria categoria = db.Categoria.Find(id);
+            if (categoria == null)
             {
                 return HttpNotFound();
             }
-            return View(categorias);
+            return View(categoria);
         }
 
         // POST: Categorias/Delete/5
@@ -109,8 +109,8 @@ namespace Inventario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categorias categorias = db.Categorias.Find(id);
-            db.Categorias.Remove(categorias);
+            Categoria categoria = db.Categoria.Find(id);
+            db.Categoria.Remove(categoria);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

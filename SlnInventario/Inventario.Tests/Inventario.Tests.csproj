@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{05903C79-BC2E-496A-BB04-21CE90C1ABD4}</ProjectGuid>
+    <ProjectGuid>{8FAE4910-0781-4456-B438-438E1661F5DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Inventario.Tests</RootNamespace>
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inventario\Inventario.csproj">
-      <Project>{2AE2B232-AC67-4945-982E-660D38F1DB3B}</Project>
+      <Project>{685B58B9-DB5D-4BD9-B3A8-22ED3EA12100}</Project>
       <Name>Inventario</Name>
     </ProjectReference>
   </ItemGroup>

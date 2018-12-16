@@ -10,12 +10,16 @@
 namespace Inventario.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class ObtenerCategorias_Result
+    public partial class Usuario
     {
-        public int idCategoria { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public bool esActivo { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdRol { get; set; }
+        public string Nombre { get; set; }
+        public string Cuenta { get; set; }
+        public string Contraseña { get; set; }
+    
+        public virtual Rol Rol { get; set; }
     }
 }

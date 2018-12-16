@@ -17,8 +17,8 @@ namespace Inventario.Controllers
         // GET: Productos
         public ActionResult Index()
         {
-            var productos = db.Productos.Include(p => p.Categorias);
-            return View(productos.ToList());
+            var producto = db.Producto.Include(p => p.Categoria);
+            return View(producto.ToList());
         }
 
         // GET: Productos/Details/5
@@ -28,51 +28,37 @@ namespace Inventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Productos productos = db.Productos.Find(id);
-            if (productos == null)
+            Producto producto = db.Producto.Find(id);
+            if (producto == null)
             {
                 return HttpNotFound();
             }
-            return View(productos);
+            return View(producto);
         }
 
         // GET: Productos/Create
         public ActionResult Create()
         {
-            List<ObtenerCategorias_Result> fil = db.ObtenerCategorias(true).ToList();
-
-            //var lista = db.Database.
-            //  ExecuteSqlCommand("Select * from categorias", null);
-
-            //List<Categoria> cat = db.Categorias.ToList();
-
-            //var filtrador = db.Categorias.
-            // Where(x => x.esActivo == true)
-            // .Select(s => s.)
-
-            var frilt = from c in db.Categorias
-                        where c.esArchivo == true
-                        select new { c.nombre, c.idCategoria };
-            ViewBag.idCategoria = new SelectList(db.Categorias, "idCategoria", "nombre");
+            ViewBag.IdCategoria = new SelectList(db.Categoria, "IdCategoria", "Nombre");
             return View();
         }
 
         // POST: Productos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idProducto,nombre,descripcion,cantidad,marca,fechaCreacion,idCategoria,esArchivo")] Productos productos)
+        public ActionResult Create([Bind(Include = "IdProducto,IdCategoria,Nombre,Cantidad_Stock,Descripcion,Marca,Talla,PrecioMayor,PrecioDetalle,PrecioCosto,Color")] Producto producto)
         {
             if (ModelState.IsValid)
             {
-                db.Productos.Add(productos);
+                db.Producto.Add(producto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idCategoria = new SelectList(db.Categorias, "idCategoria", "nombre", productos.idCategoria);
-            return View(productos);
+            ViewBag.IdCategoria = new SelectList(db.Categoria, "IdCategoria", "Nombre", producto.IdCategoria);
+            return View(producto);
         }
 
         // GET: Productos/Edit/5
@@ -82,30 +68,30 @@ namespace Inventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Productos productos = db.Productos.Find(id);
-            if (productos == null)
+            Producto producto = db.Producto.Find(id);
+            if (producto == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.idCategoria = new SelectList(db.Categorias, "idCategoria", "nombre", productos.idCategoria);
-            return View(productos);
+            ViewBag.IdCategoria = new SelectList(db.Categoria, "IdCategoria", "Nombre", producto.IdCategoria);
+            return View(producto);
         }
 
         // POST: Productos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idProducto,nombre,descripcion,cantidad,marca,fechaCreacion,idCategoria,esArchivo")] Productos productos)
+        public ActionResult Edit([Bind(Include = "IdProducto,IdCategoria,Nombre,Cantidad_Stock,Descripcion,Marca,Talla,PrecioMayor,PrecioDetalle,PrecioCosto,Color")] Producto producto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(productos).State = EntityState.Modified;
+                db.Entry(producto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idCategoria = new SelectList(db.Categorias, "idCategoria", "nombre", productos.idCategoria);
-            return View(productos);
+            ViewBag.IdCategoria = new SelectList(db.Categoria, "IdCategoria", "Nombre", producto.IdCategoria);
+            return View(producto);
         }
 
         // GET: Productos/Delete/5
@@ -115,12 +101,12 @@ namespace Inventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Productos productos = db.Productos.Find(id);
-            if (productos == null)
+            Producto producto = db.Producto.Find(id);
+            if (producto == null)
             {
                 return HttpNotFound();
             }
-            return View(productos);
+            return View(producto);
         }
 
         // POST: Productos/Delete/5
@@ -128,8 +114,8 @@ namespace Inventario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Productos productos = db.Productos.Find(id);
-            db.Productos.Remove(productos);
+            Producto producto = db.Producto.Find(id);
+            db.Producto.Remove(producto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -141,6 +127,12 @@ namespace Inventario.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //GET: Productos/Listado
+        public ActionResult Listado()
+        {
+            return View();
         }
     }
 }
